@@ -1,0 +1,19 @@
+<%- include('../partials/header/') %>
+<h3>To-Dos as of <%= time %></h3>
+     <ul>
+      <a href="/todos/new">Add To-do</a>
+       <% todos.forEach(function(t) { %>
+         <li>
+          <form action="/todos/<%= t.id %>?_method=DELETE"
+            class="delete-form" method="POST">
+            <button type="submit">X</button> 
+           <a href="/todos/<%= t.id %>"><%= t.todo %></a>
+             - 
+           <%= t.done ? 'done' : 'not done' %>
+         </li>
+       <% }); %>
+     </ul>
+
+
+
+<%- include('../partials/footer') %>
